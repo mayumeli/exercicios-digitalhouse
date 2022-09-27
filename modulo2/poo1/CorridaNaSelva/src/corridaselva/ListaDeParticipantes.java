@@ -29,8 +29,32 @@ public class ListaDeParticipantes {
             String celular = s.nextLine();
             System.out.println("Digite o tipo sanguineo do participante: ");
             String tipoSanguineo = s.nextLine();
-            Participante p = new Participante(nome, sobrenome, RG, idade, celular, tipoSanguineo);
+            String tipo = "";
+            int tipoCircuitoLoopControl = 0;
+            do {
+                System.out.println("Escolha o tipo de circuito do participante: ");
+                System.out.println("1 - Pequeno");
+                System.out.println("2 - Medio");
+                System.out.println("3 - Avançado");
+                tipo = s.nextLine();
+                if (tipo.equals("1") || tipo.equals("2") || tipo.equals("3")) {
+                    tipoCircuitoLoopControl = 1;
+                    if (tipo.equals("3") && idade < 18) {
+                        System.out.println("O participante não pode participar do circuito avançado");
+                        tipoCircuitoLoopControl = 0;
+                    }
+                } else {
+                    System.out.println("Opção inválida!");
+                }
+            } while (tipoCircuitoLoopControl == 0);
+            Circuito circuitoCorreto = Circuito.getCircuito(tipo);
+            Participante p = new Participante(nome, sobrenome, RG, idade, celular, tipoSanguineo, circuitoCorreto);
             listaParticipantes.add(p);
+            System.out.println("------------------------");
+            System.out.println("O participante foi cadastrado com sucesso!");
+            System.out.println("Dados do participante:");
+            System.out.println(p);
+            System.out.println("------------------------");
             System.out.println("Deseja cadastrar mais um participante? (1 - sim, 0 - nao)");
             String novoControle = s.nextLine();
             controle = Integer.parseInt(novoControle);
@@ -55,13 +79,8 @@ public class ListaDeParticipantes {
 
     private void listarParticipantes() {
         for (int i = 0; i < listaParticipantes.size(); i++) {
-            System.out.println("------------------------");
-            System.out.println("Nome: " + listaParticipantes.get(i).getNome());
-            System.out.println("Sobrenome: " + listaParticipantes.get(i).getSobrenome());
-            System.out.println("RG: " + listaParticipantes.get(i).getRG());
-            System.out.println("Idade: " + listaParticipantes.get(i).getIdade());
-            System.out.println("Celular: " + listaParticipantes.get(i).getCelular());
-            System.out.println("Tipo sanguineo: " + listaParticipantes.get(i).getTipoSanguineo());
+                System.out.println("------------------------");
+                System.out.println(listaParticipantes.get(i));
             if (i == listaParticipantes.size() - 1) {
                 System.out.println("------------------------");
             }
@@ -69,16 +88,16 @@ public class ListaDeParticipantes {
     }
 
     private void cadastrarParticipantesFakes() {
-        Participante p1 = new Participante("Joao", "Silva", "123456789", 20, "999999999", "A+");
-        Participante p2 = new Participante("Maria", "Silva", "987654321", 23, "888888888", "B+");
-        Participante p3 = new Participante("Jose", "Silva", "123456789", 18, "777777777", "AB+");
-        Participante p4 = new Participante("Joana", "Silva", "987654321", 16, "666666666", "O+");
-        Participante p5 = new Participante("Carlos", "Silva", "123456789", 27, "555555555", "A+");
-        Participante p6 = new Participante("Tatiana", "Silva", "987654321", 14, "444444444", "B+");
-        Participante p7 = new Participante("Jessica", "Silva", "123456789", 40, "333333333", "AB+");
-        Participante p8 = new Participante("Matheus", "Silva", "987654321", 24, "222222222", "O+");
-        Participante p9 = new Participante("Fernando", "Silva", "123456789", 35, "111111111", "A+");
-        Participante p10 = new Participante("Larissa", "Silva", "987654321", 20, "000000000", "B+");
+        Participante p1 = new Participante("Joao", "Silva", "123456789", 20, "999999999", "A+", new CircuitoPequeno());
+        Participante p2 = new Participante("Maria", "Silva", "987654321", 23, "888888888", "B+", new CircuitoMedio());
+        Participante p3 = new Participante("Jose", "Silva", "123456789", 18, "777777777", "AB+", new CircuitoAvancado());
+        Participante p4 = new Participante("Joana", "Silva", "987654321", 16, "666666666", "O+", new CircuitoPequeno());
+        Participante p5 = new Participante("Carlos", "Silva", "123456789", 27, "555555555", "A+", new CircuitoMedio());
+        Participante p6 = new Participante("Tatiana", "Silva", "987654321", 14, "444444444", "B+", new CircuitoAvancado());
+        Participante p7 = new Participante("Jessica", "Silva", "123456789", 40, "333333333", "AB+", new CircuitoPequeno());
+        Participante p8 = new Participante("Matheus", "Silva", "987654321", 24, "222222222", "O+", new CircuitoMedio());
+        Participante p9 = new Participante("Fernando", "Silva", "123456789", 35, "111111111", "A+", new CircuitoAvancado());
+        Participante p10 = new Participante("Larissa", "Silva", "987654321", 20, "000000000", "B+", new CircuitoPequeno());
         listaParticipantes.add(p1);
         listaParticipantes.add(p2);
         listaParticipantes.add(p3);

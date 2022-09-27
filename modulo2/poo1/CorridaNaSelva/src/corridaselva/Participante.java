@@ -8,6 +8,8 @@ public class Participante {
     private String celular;
     private String tipoSanguineo;
 
+    private Circuito tipoDeCircuito;
+
     public String getNome() {
         return nome;
     }
@@ -56,12 +58,38 @@ public class Participante {
         this.tipoSanguineo = tipoSanguineo;
     }
 
-    public Participante(String nome, String sobrenome, String RG, int idade, String celular, String tipoSanguineo) {
+    public Circuito getTipoDeCircuito() {
+        return this.tipoDeCircuito;
+    }
+
+    public void setTipoDeCircuito(Circuito tipoDeCircuito) {
+        this.tipoDeCircuito = tipoDeCircuito;
+    }
+
+    public Participante(String nome, String sobrenome, String RG, int idade, String celular, String tipoSanguineo, Circuito tipoDeCircuito) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.RG = RG;
         this.idade = idade;
         this.celular = celular;
         this.tipoSanguineo = tipoSanguineo;
+        this.tipoDeCircuito = tipoDeCircuito;
+    }
+
+    @Override
+    public String toString() {
+        return "nome: " + nome + "\n"
+                + "sobrenome: " + sobrenome + "\n"
+                + "RG: " + RG + "\n"
+                + "idade: " + idade + "\n"
+                + "celular: " + celular + "\n"
+                + "tipoSanguineo: " + tipoSanguineo + "\n"
+                + "tipoDeCircuito: " + tipoDeCircuito.getNome() + "\n"
+                + "valor: " + tipoDeCircuito.calcular(idade) ;
+    }
+
+    public int calcularPreco() {
+        int resultado = tipoDeCircuito.calcular(idade);
+        return resultado;
     }
 }
