@@ -7,8 +7,9 @@ public class Participante {
     private int idade;
     private String celular;
     private String tipoSanguineo;
-
     private Circuito tipoDeCircuito;
+
+    private int numero ;
 
     public String getNome() {
         return nome;
@@ -66,7 +67,15 @@ public class Participante {
         this.tipoDeCircuito = tipoDeCircuito;
     }
 
-    public Participante(String nome, String sobrenome, String RG, int idade, String celular, String tipoSanguineo, Circuito tipoDeCircuito) {
+    public int getNumero() {
+        return this.numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public Participante(String nome, String sobrenome, String RG, int idade, String celular, String tipoSanguineo, Circuito tipoDeCircuito, int numero) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.RG = RG;
@@ -74,6 +83,7 @@ public class Participante {
         this.celular = celular;
         this.tipoSanguineo = tipoSanguineo;
         this.tipoDeCircuito = tipoDeCircuito;
+        this.numero = numero;
     }
 
     @Override
@@ -85,6 +95,7 @@ public class Participante {
                 + "celular: " + celular + "\n"
                 + "tipoSanguineo: " + tipoSanguineo + "\n"
                 + "tipoDeCircuito: " + tipoDeCircuito.getNome() + "\n"
+                + "numero: " + numero + "\n"
                 + "valor: " + tipoDeCircuito.calcular(idade) ;
     }
 
