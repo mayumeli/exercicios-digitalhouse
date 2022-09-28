@@ -87,13 +87,41 @@ public class ListaDeParticipantes {
         }
     }
 
+    private void listarParticipantesPorTipoDeCircuito() {
+        Scanner s = new Scanner(System.in);
+        String tipo = "";
+        int tipoCircuitoLoopControl = 0;
+        do {
+            System.out.println("Escolha um tipo de circuito: ");
+            System.out.println("1 - Pequeno");
+            System.out.println("2 - Medio");
+            System.out.println("3 - Avançado");
+            tipo = s.nextLine();
+            if (!tipo.equals("1") && !tipo.equals("2") && !tipo.equals("3")) {
+                System.out.println("Opção inválida!");
+            } else {
+                tipoCircuitoLoopControl = 1;
+            }
+        } while (tipoCircuitoLoopControl == 0);
+        Circuito circuitoCorreto = Circuito.getCircuito(tipo);
+        for (int i = 0; i < listaParticipantes.size(); i++) {
+            if (listaParticipantes.get(i).getTipoDeCircuito().getNome().equals(circuitoCorreto.getNome())) {
+                System.out.println("------------------------");
+                System.out.println(listaParticipantes.get(i));
+            }
+            if (i == listaParticipantes.size() - 1) {
+                System.out.println("------------------------");
+            }
+        }
+    }
+
     private void cadastrarParticipantesFakes() {
         Participante p1 = new Participante("Joao", "Silva", "123456789", 20, "999999999", "A+", new CircuitoPequeno());
         Participante p2 = new Participante("Maria", "Silva", "987654321", 23, "888888888", "B+", new CircuitoMedio());
         Participante p3 = new Participante("Jose", "Silva", "123456789", 18, "777777777", "AB+", new CircuitoAvancado());
         Participante p4 = new Participante("Joana", "Silva", "987654321", 16, "666666666", "O+", new CircuitoPequeno());
-        Participante p5 = new Participante("Carlos", "Silva", "123456789", 27, "555555555", "A+", new CircuitoMedio());
-        Participante p6 = new Participante("Tatiana", "Silva", "987654321", 14, "444444444", "B+", new CircuitoAvancado());
+        Participante p5 = new Participante("Carlos", "Silva", "123456789", 14, "555555555", "A+", new CircuitoMedio());
+        Participante p6 = new Participante("Tatiana", "Silva", "987654321", 27, "444444444", "B+", new CircuitoAvancado());
         Participante p7 = new Participante("Jessica", "Silva", "123456789", 40, "333333333", "AB+", new CircuitoPequeno());
         Participante p8 = new Participante("Matheus", "Silva", "987654321", 24, "222222222", "O+", new CircuitoMedio());
         Participante p9 = new Participante("Fernando", "Silva", "123456789", 35, "111111111", "A+", new CircuitoAvancado());
@@ -120,7 +148,9 @@ public class ListaDeParticipantes {
             System.out.println("1 - Cadastrar participante");
             System.out.println("2 - Remover participante");
             System.out.println("3 - Listar participantes");
-            System.out.println("4 - Sair");
+            System.out.println("4 - Listar participantes por tipo de circuito");
+            System.out.println("5 - Cadastrar participantes fakes");
+            System.out.println("6 - Sair");
             String o = s.nextLine();
             int opcao = Integer.parseInt(o);
             switch (opcao) {
@@ -134,10 +164,13 @@ public class ListaDeParticipantes {
                     listarParticipantes();
                     break;
                 case 4:
+                    listarParticipantesPorTipoDeCircuito();
+                    break;
+                case 6:
                     System.out.println("Saindo...");
                     control = 1;
                     break;
-                case 999:
+                case 5:
                     System.out.println("Cadastrando pessoas fakes...");
                     cadastrarParticipantesFakes();
                     break;
