@@ -1,6 +1,8 @@
 import java.util.HashMap;
+import java.util.Optional;
 
 import circuitos.Circuito;
+import exceptions.ParticipanteNaoExisteException;
 import utils.NumberGenerator;
 
 public class ListaDeParticipantes {
@@ -12,8 +14,12 @@ public class ListaDeParticipantes {
         listaDeParticipantes.put(NumberGenerator.getInstance().getNext(), participante);
     }
 
-    public Participante getParticipante(int id) {
-        return listaDeParticipantes.get(id);
+    public Participante getParticipante(int id) throws ParticipanteNaoExisteException {
+        Participante p = listaDeParticipantes.get(id);
+        if (p == null) {
+            throw new ParticipanteNaoExisteException("Participante não existe");
+        }
+        return p;
     }
 
     public void removeParticipante(int id) {
