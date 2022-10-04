@@ -1,5 +1,4 @@
 import java.util.HashMap;
-import java.util.Optional;
 
 import circuitos.Circuito;
 import exceptions.ParticipanteNaoExisteException;
