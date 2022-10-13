@@ -1,4 +1,4 @@
-package com.unittest.mayumeli.unittest.controller;
+package com.usertest.mayumeli.usertest.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.unittest.mayumeli.unittest.dto.UserDto;
-import com.unittest.mayumeli.unittest.model.User;
-import com.unittest.mayumeli.unittest.service.IUser;
+import com.usertest.mayumeli.usertest.dto.UserDto;
+import com.usertest.mayumeli.usertest.model.User;
+import com.usertest.mayumeli.usertest.service.IUser;
 
 @RestController
 @RequestMapping("/api/v1/user")

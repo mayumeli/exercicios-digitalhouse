@@ -1,6 +1,6 @@
-package com.unittest.mayumeli.unittest.dto;
+package com.usertest.mayumeli.usertest.dto;
 
-import com.unittest.mayumeli.unittest.model.User;
+import com.usertest.mayumeli.usertest.model.User;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

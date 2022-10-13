@@ -28,6 +28,7 @@ public class Basico extends Cliente {
                 System.out.println("Opção inválida! Digite novamente: ");
             }
         } while (opcao == 0);
+
         ProcessarOpcao.ProcessarOpcao(opcao);
         scanner.close();
     }

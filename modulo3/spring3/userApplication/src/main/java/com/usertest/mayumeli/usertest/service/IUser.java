@@ -1,10 +1,10 @@
-package com.unittest.mayumeli.unittest.service;
+package com.usertest.mayumeli.usertest.service;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.unittest.mayumeli.unittest.dto.UserDto;
-import com.unittest.mayumeli.unittest.model.User;
+import com.usertest.mayumeli.usertest.dto.UserDto;
+import com.usertest.mayumeli.usertest.model.User;
 
 public interface IUser {
     List<User> getAllUsers() throws IOException;

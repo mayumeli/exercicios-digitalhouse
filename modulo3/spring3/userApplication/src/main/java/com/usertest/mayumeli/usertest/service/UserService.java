@@ -1,4 +1,4 @@
-package com.unittest.mayumeli.unittest.service;
+package com.usertest.mayumeli.usertest.service;
 
 import java.io.IOException;
 import java.util.List;
@@ -6,9 +6,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.unittest.mayumeli.unittest.dto.UserDto;
-import com.unittest.mayumeli.unittest.model.User;
-import com.unittest.mayumeli.unittest.repository.UserRepo;
+import com.usertest.mayumeli.usertest.dto.UserDto;
+import com.usertest.mayumeli.usertest.model.User;
+import com.usertest.mayumeli.usertest.repository.UserRepo;
 
 @Service
 public class UserService implements IUser {

@@ -1,4 +1,4 @@
-package com.unittest.mayumeli.unittest.model;
+package com.usertest.mayumeli.usertest.model;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;

@@ -1,13 +1,13 @@
-package com.unittest.mayumeli.unittest;
+package com.usertest.mayumeli.usertest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UnittestApplication {
+public class UserTestApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UnittestApplication.class, args);
+		SpringApplication.run(UserTestApplication.class, args);
 	}
 
 }

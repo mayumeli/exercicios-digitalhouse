@@ -1,4 +1,4 @@
-package com.unittest.mayumeli.unittest.repository;
+package com.usertest.mayumeli.usertest.repository;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.unittest.mayumeli.unittest.model.User;
+import com.usertest.mayumeli.usertest.model.User;
 
 @Repository
 public class UserRepo {
