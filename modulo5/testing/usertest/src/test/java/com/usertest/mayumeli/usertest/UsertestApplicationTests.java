@@ -1,10 +1,10 @@
-package com.unittest.mayumeli.unittest;
+package com.usertest.mayumeli.usertest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UnittestApplicationTests {
+class UsertestApplicationTests {
 
 	@Test
 	void contextLoads() {
