@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.BDDMockito;
+import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -31,6 +33,8 @@ public class UserControllerTest {
     @Autowired
     private ObjectMapper objectMapper;
 
+    // este objeto "bean" tem algumas coisas do spring
+    // somente no controller podemos precisar do mockbean
     @MockBean
     private UserService service;
 
@@ -58,7 +62,12 @@ public class UserControllerTest {
 
         String json = objectMapper.writeValueAsString(mayu);
         
-        this.mockMvc.perform(post("/api/v1/user/create").content(json).contentType(MediaType.APPLICATION_JSON))
+        this.mockMvc
+            .perform(
+                post("/api/v1/user/create")
+                    .content(json)
+                    .contentType(MediaType.APPLICATION_JSON)
+                )
             .andExpect(status().isCreated())
             .andExpect(content().json("{'id': 1, 'name': 'Mayumi', 'email': 'mayu@hotmail.com'}"));
     }

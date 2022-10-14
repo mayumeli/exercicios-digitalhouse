@@ -1,7 +1,6 @@
 package com.usertest.mayumeli.usertest.service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +13,7 @@ import org.mockito.BDDMockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.usertest.mayumeli.usertest.dto.UserDto;
 import com.usertest.mayumeli.usertest.model.User;
@@ -25,6 +25,7 @@ public class UserServiceTest {
     @InjectMocks
     private UserService service;
 
+    // aqui nao estamos dependendo do spring
     @Mock
     private UserRepo repository;
 
